@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <title>Сервіс чергувань</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Сервіс чергувань у лабораторії</h1>
+            <p>Варіант 11: Система керування графіком чергувань</p>
+        </header>
+        
+        <main>
+            <section id="create-section">
+                <h2>Додати нове чергування</h2>
+                
+                <form id="shiftForm">
+                
+                    <div class="field">
+                        <label for="dateInput">Дата чергування:</label>
+                        <input type="date" id="dateInput" required>
+                        <p class="error-text" id="dateError"></p>
+                    </div>
+                    
+                    
+                    <div class="field">
+                        <label for="timeSlotSelect">Часова зміна:</label>
+                        <select id="timeSlotSelect" required>
+                            <option value="">Оберіть зміну</option>
+                            <option value="Ранок (8:00-12:00)">Ранок (8:00-12:00)</option>
+                            <option value="День (12:00-16:00)">День (12:00-16:00)</option>
+                            <option value="Вечір (16:00-20:00)">Вечір (16:00-20:00)</option>
+                        </select>
+                        <p class="error-text" id="timeSlotError"></p>
+                    </div>
+                    
+                
+                    <div class="field">
+                        <label for="userNameInput">Черговий:</label>
+                        <input type="text" id="userNameInput" placeholder="Прізвище та ініціали" required>
+                        <p class="error-text" id="userNameError"></p>
+                    </div>
+                    
+                    
+                    <div class="field">
+                        <label for="commentInput">Коментар:</label>
+                        <textarea id="commentInput" rows="3" placeholder="Додаткові нотатки..."></textarea>
+                        <p class="error-text" id="commentError"></p>
+                    </div>
+                    
+                    
+                    <div class="field">
+                        <label for="statusSelect">Статус:</label>
+                        <select id="statusSelect" required>
+                            <option value="">Оберіть статус</option>
+                            <option value="Заплановано">Заплановано</option>
+                            <option value="Підтверджено">Підтверджено</option>
+                            <option value="Виконано">Виконано</option>
+                            <option value="Скасовано">Скасовано</option>
+                        </select>
+                        <p class="error-text" id="statusError"></p>
+                    </div>
+                    
+                
+                    <div class="buttons">
+                        <button type="submit">Додати чергування</button>
+                        <button type="button" id="resetBtn">Очистити форму</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section id="list-section">
+                <h2>Список чергувань</h2>
+                <table id="shiftsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Дата</th>
+                            <th>Зміна</th>
+                            <th>Черговий</th>
+                            <th>Статус</th>
+                            <th>Коментар</th>
+                            <th>Дії</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+                <p id="emptyMessage" class="empty-message">Немає запланованих чергувань</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
